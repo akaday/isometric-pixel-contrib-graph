@@ -15,3 +15,56 @@
   background-color: #000;
   margin: 1px;
 }
+
+/* Styles for tooltips to display contribution count and date */
+.pixel[title] {
+  position: relative;
+}
+
+.pixel[title]::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.pixel:hover::after {
+  opacity: 1;
+}
+
+/* Styles for zoom feature to focus on specific weeks or months */
+.graph-container.zoomed {
+  transform: scale(2);
+  overflow: auto;
+}
+
+/* Styles for animations to make the graph more visually appealing */
+.pixel {
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.pixel:hover {
+  transform: rotate(45deg) skew(15deg) scale(1.2);
+}
+
+/* Styles for different color schemes for the graph */
+.graph-container.default-scheme .pixel {
+  background-color: #000;
+}
+
+.graph-container.dark-scheme .pixel {
+  background-color: #333;
+}
+
+.graph-container.light-scheme .pixel {
+  background-color: #ccc;
+}

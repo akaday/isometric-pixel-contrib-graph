@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   fetchGraphData();
+  addRefreshButtonListener();
+  addColorSchemeChangeListener();
 });
 
 function fetchGraphData() {
@@ -18,6 +20,7 @@ function renderIsometricPixelArtGraph(data) {
     const pixel = document.createElement('div');
     pixel.className = 'pixel';
     pixel.style.backgroundColor = getColorForCount(day.count);
+    pixel.title = `Date: ${day.date}, Count: ${day.count}`; // Add tooltip
     graphContainer.appendChild(pixel);
   });
 }
@@ -29,4 +32,29 @@ function getColorForCount(count) {
   if (count >= 4) return '#40c463';
   if (count >= 2) return '#9be9a8';
   return '#ebedf0';
+}
+
+function addRefreshButtonListener() {
+  const refreshButton = document.getElementById('refreshButton');
+  if (refreshButton) {
+    refreshButton.addEventListener('click', () => {
+      fetchGraphData();
+    });
+  }
+}
+
+function addColorSchemeChangeListener() {
+  const colorSchemeSelect = document.getElementById('colorSchemeSelect');
+  if (colorSchemeSelect) {
+    colorSchemeSelect.addEventListener('change', (event) => {
+      const selectedScheme = event.target.value;
+      updateColorScheme(selectedScheme);
+    });
+  }
+}
+
+function updateColorScheme(scheme) {
+  // Update the color scheme based on the selected value
+  // This is a placeholder function, you need to implement the actual logic
+  console.log('Updating color scheme to:', scheme);
 }

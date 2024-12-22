@@ -8,6 +8,19 @@
 </head>
 <body>
   <div class="graph-container" id="graphContainer"></div>
+  <div class="settings-panel">
+    <label for="colorSchemeSelect">Color Scheme:</label>
+    <select id="colorSchemeSelect">
+      <option value="default">Default</option>
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+    </select>
+    <label for="dateRange">Date Range:</label>
+    <input type="date" id="startDate">
+    <input type="date" id="endDate">
+    <button id="searchButton">Search</button>
+  </div>
+  <button id="refreshButton">Refresh</button>
   <script src="popup.js"></script>
 </body>
 </html>
