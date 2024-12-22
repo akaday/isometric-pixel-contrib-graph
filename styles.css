@@ -1,0 +1,17 @@
+/* Styles for the isometric pixel art graph */
+.graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.pixel {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) skew(15deg);
+  background-color: #000;
+  margin: 1px;
+}
