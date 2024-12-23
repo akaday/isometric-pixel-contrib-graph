@@ -25,7 +25,22 @@ You can load your extension into your browser to test it. In Chrome, go to chrom
 
 If you have any specific questions or need further guidance on developing the extension, feel free to ask!
 
+## New Feature: Highlighting Contribution Streaks and Milestones
 
+This extension now includes a feature to highlight contribution streaks and milestones in your GitHub contribution graph. Here's how it works:
 
+### Contribution Streaks
 
-Message Copilot
+Contribution streaks are identified by checking consecutive days with contributions. The streaks are visually highlighted in the isometric pixel art graph by changing the color or adding a border around the streaks.
+
+### Milestones
+
+Milestones are significant points in your contribution history, such as reaching a certain number of contributions. These milestones are also highlighted in the graph to make them stand out.
+
+### How to Use
+
+1. Install the extension in your browser.
+2. Open the extension popup to view your isometric pixel art contribution graph.
+3. Contribution streaks and milestones will be automatically highlighted in the graph.
+
+Enjoy tracking your progress and stay motivated with your contribution streaks and milestones!
