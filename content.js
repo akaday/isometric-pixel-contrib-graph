@@ -41,3 +41,18 @@ function renderIsometricPixelArtGraph(data) {
 // Fetch the contribution graph data and render the isometric pixel art graph
 const graphData = fetchContributionGraphData();
 renderIsometricPixelArtGraph(graphData);
+
+// Establish a WebSocket connection with the Python server
+const socket = new WebSocket('ws://localhost:8765');
+
+socket.addEventListener('open', function (event) {
+  console.log('WebSocket connection established');
+  socket.send('Hello from JavaScript');
+});
+
+socket.addEventListener('message', function (event) {
+  console.log('Message from server:', event.data);
+  // Handle real-time data updates from the WebSocket connection
+  const updatedData = JSON.parse(event.data);
+  renderIsometricPixelArtGraph(updatedData);
+});
