@@ -19,6 +19,9 @@ function renderIsometricPixelArtGraph(data) {
     const pixel = document.createElement('div');
     pixel.className = 'pixel';
     pixel.style.backgroundColor = getColorForCount(day.count);
+    if (day.streak > 1) {
+      pixel.style.border = '2px solid red'; // Highlight streaks with a border
+    }
     graphContainer.appendChild(pixel);
   });
 }
