@@ -25,7 +25,25 @@ You can load your extension into your browser to test it. In Chrome, go to chrom
 
 If you have any specific questions or need further guidance on developing the extension, feel free to ask!
 
+## AI Integration
 
+This extension now includes AI integration using OpenAI's GPT-3 API to fetch and analyze GitHub contribution graph data. The AI integration enhances the graph data by providing additional insights and analysis.
 
+### How to Use AI Integration
 
-Message Copilot
+1. **Fetch AI-Analyzed Graph Data**: The extension automatically fetches AI-analyzed graph data when you open the popup or visit a GitHub profile page.
+2. **Error Handling**: The extension includes error handling for API response errors, including status code checks, try-catch blocks, logging, user-friendly error messages, and retry mechanisms.
+3. **User Preferences**: You can manage AI-based features and preferences in the settings page of the extension.
+
+### API Key Configuration
+
+To use the AI integration, you need to configure your OpenAI API key:
+
+1. Open the `content.js` file.
+2. Replace `YOUR_OPENAI_API_KEY` with your actual OpenAI API key.
+
+### Additional Information
+
+For more details on how the AI integration works, refer to the comments and documentation within the code files, especially `content.js`, `background.js`, and `popup.js`.
+
+Happy coding!

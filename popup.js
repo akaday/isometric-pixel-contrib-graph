@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function fetchGraphData() {
-  chrome.runtime.sendMessage({ action: 'fetchGraphData' }, (response) => {
+  chrome.runtime.sendMessage({ action: 'fetchAIAnalyzedGraphData' }, (response) => {
     if (response && response.data) {
       renderIsometricPixelArtGraph(response.data);
+    } else if (response && response.error) {
+      displayErrorMessage(response.error);
     }
   });
 }
@@ -83,4 +85,11 @@ function saveUserPreferences() {
   localStorage.setItem('darkMode', darkMode);
 
   applyUserPreferences();
+}
+
+function displayErrorMessage(message) {
+  const errorContainer = document.createElement('div');
+  errorContainer.className = 'error-message';
+  errorContainer.textContent = message;
+  document.body.appendChild(errorContainer);
 }
