@@ -3,7 +3,7 @@
   "name": "Isometric Pixel GitHub Graph",
   "version": "1.0",
   "description": "Browser extension for rendering an isometric pixel art version of your GitHub contribution graph.",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["activeTab", "storage", "http://127.0.0.1:5000/*"],
   "background": {
     "service_worker": "background.js"
   },
