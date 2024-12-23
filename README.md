@@ -62,3 +62,56 @@ This extension now includes functionality to export the isometric pixel art grap
 3. The graph will be exported as a GIF and downloaded to your device.
 
 This feature allows you to easily share your isometric pixel art contribution graph with others or save it for future reference.
+
+## Setting Up Python and Flask Server
+
+To integrate Python with the existing JavaScript code, follow these steps:
+
+### Prerequisites
+
+- Ensure you have Python installed on your system. You can download it from [python.org](https://www.python.org/).
+
+### Installing Flask
+
+1. Open your terminal or command prompt.
+2. Run the following command to install Flask:
+   ```
+   pip install Flask
+   ```
+
+### Creating the Flask Server
+
+1. In the root directory of your project, create a new file named `app.py`.
+2. Add the following code to `app.py` to set up a basic Flask server:
+   ```python
+   from flask import Flask, jsonify
+
+   app = Flask(__name__)
+
+   @app.route('/api/data', methods=['GET'])
+   def get_data():
+       # Placeholder for data fetching and processing logic
+       data = {
+           'message': 'Hello from Flask!'
+       }
+       return jsonify(data)
+
+   if __name__ == '__main__':
+       app.run(debug=True)
+   ```
+
+### Running the Flask Server
+
+1. Open your terminal or command prompt.
+2. Navigate to the root directory of your project.
+3. Run the following command to start the Flask server:
+   ```
+   python app.py
+   ```
+
+### Integrating Flask with the Extension
+
+1. Modify `background.js` to use JavaScript's `fetch` API to make HTTP requests to the Flask server and retrieve the necessary data.
+2. Update `manifest.json` to include the necessary permissions and background script changes for Python integration.
+
+By following these steps, you will set up a Flask server to handle data fetching and processing, and integrate it with your existing JavaScript code in the browser extension.
