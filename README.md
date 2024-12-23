@@ -44,3 +44,21 @@ Milestones are significant points in your contribution history, such as reaching
 3. Contribution streaks and milestones will be automatically highlighted in the graph.
 
 Enjoy tracking your progress and stay motivated with your contribution streaks and milestones!
+
+## Exporting the Isometric Pixel Art Graph
+
+This extension now includes functionality to export the isometric pixel art graph as an image or a GIF. Here's how you can use this feature:
+
+### Export as Image
+
+1. Open the extension popup to view your isometric pixel art contribution graph.
+2. Click the "Export as Image" button.
+3. The graph will be exported as a PNG image and downloaded to your device.
+
+### Export as GIF
+
+1. Open the extension popup to view your isometric pixel art contribution graph.
+2. Click the "Export as GIF" button.
+3. The graph will be exported as a GIF and downloaded to your device.
+
+This feature allows you to easily share your isometric pixel art contribution graph with others or save it for future reference.

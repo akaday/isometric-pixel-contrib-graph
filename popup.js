@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   fetchGraphData();
   applyUserPreferences();
+  addExportEventListeners();
 });
 
 function fetchGraphData() {
@@ -86,4 +87,62 @@ function saveUserPreferences() {
   localStorage.setItem('darkMode', darkMode);
 
   applyUserPreferences();
+}
+
+function addExportEventListeners() {
+  document.getElementById('exportImageBtn').addEventListener('click', exportGraphAsImage);
+  document.getElementById('exportGifBtn').addEventListener('click', exportGraphAsGif);
+}
+
+function exportGraphAsImage() {
+  const canvas = document.getElementById('exportCanvas');
+  const ctx = canvas.getContext('2d');
+  const graphContainer = document.getElementById('graphContainer');
+  const pixels = graphContainer.getElementsByClassName('pixel');
+
+  canvas.width = graphContainer.offsetWidth;
+  canvas.height = graphContainer.offsetHeight;
+
+  Array.from(pixels).forEach(pixel => {
+    const rect = pixel.getBoundingClientRect();
+    ctx.fillStyle = pixel.style.backgroundColor;
+    ctx.fillRect(rect.left, rect.top, rect.width, rect.height);
+  });
+
+  const image = canvas.toDataURL('image/png');
+  const link = document.createElement('a');
+  link.href = image;
+  link.download = 'isometric-pixel-art.png';
+  link.click();
+}
+
+function exportGraphAsGif() {
+  const gif = new GIF({
+    workers: 2,
+    quality: 10
+  });
+
+  const canvas = document.getElementById('exportCanvas');
+  const ctx = canvas.getContext('2d');
+  const graphContainer = document.getElementById('graphContainer');
+  const pixels = graphContainer.getElementsByClassName('pixel');
+
+  canvas.width = graphContainer.offsetWidth;
+  canvas.height = graphContainer.offsetHeight;
+
+  Array.from(pixels).forEach(pixel => {
+    const rect = pixel.getBoundingClientRect();
+    ctx.fillStyle = pixel.style.backgroundColor;
+    ctx.fillRect(rect.left, rect.top, rect.width, rect.height);
+  });
+
+  gif.addFrame(ctx, {copy: true});
+  gif.on('finished', function(blob) {
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'isometric-pixel-art.gif';
+    link.click();
+  });
+
+  gif.render();
 }
