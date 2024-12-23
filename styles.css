@@ -1,4 +1,21 @@
 /* Styles for the isometric pixel art graph */
+:root {
+  --pixel-size: 10px;
+  --theme-high: #216e39;
+  --theme-medium-high: #30a14e;
+  --theme-medium: #40c463;
+  --theme-low: #9be9a8;
+  --theme-none: #ebedf0;
+}
+
+.dark-mode {
+  --theme-high: #0e4429;
+  --theme-medium-high: #006d32;
+  --theme-medium: #26a641;
+  --theme-low: #39d353;
+  --theme-none: #161b22;
+}
+
 .graph-container {
   display: flex;
   justify-content: center;
@@ -9,9 +26,14 @@
 }
 
 .pixel {
-  width: 10px;
-  height: 10px;
+  width: var(--pixel-size);
+  height: var(--pixel-size);
   transform: rotate(45deg) skew(15deg);
-  background-color: #000;
+  background-color: var(--theme-none);
   margin: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.pixel:hover {
+  background-color: var(--theme-high);
 }
