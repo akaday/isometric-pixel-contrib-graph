@@ -1,0 +1,16 @@
+{
+  "default": {
+    "high": "#216e39",
+    "mediumHigh": "#30a14e",
+    "medium": "#40c463",
+    "low": "#9be9a8",
+    "none": "#ebedf0"
+  },
+  "dark": {
+    "high": "#0e4429",
+    "mediumHigh": "#006d32",
+    "medium": "#26a641",
+    "low": "#39d353",
+    "none": "#161b22"
+  }
+}
